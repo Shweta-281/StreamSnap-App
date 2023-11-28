@@ -38,11 +38,11 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col md:px-12 px-0 relative bg-background font-poppins items-center min-h-screen">
-      <h1 className="text-6xl font-bold text-primary mt-20">
-        <span className="text-active">Streaming</span> Availability
+    <div className="flex flex-col md:px-12 px-0 relative bg-secondary font-poppins items-center min-h-screen">
+      <h1 className="text-6xl font-bold text-background mt-20">
+        <span className="text-active">StreamSnap</span> App
       </h1>
-      <h2 className="text-primary text-2xl font-light mt-6 font-ebas">
+      <h2 className="text-background text-2xl font-light mt-6 font-ebas">
         Get Streaming details of Movie and TV Shows from 150+ Streaming
         platforms
       </h2>
@@ -56,7 +56,7 @@ export default function Home() {
       >
         <input
           type="text"
-          className="flex w-full sm:w-1/3 rounded-lg px-5 py-3 text-base text-background font-semibold focus:outline-none focus:ring-2 focus:ring-active"
+          className="flex w-full sm:w-1/3 rounded-lg px-5 py-3 text-base text-background bg-primary font-semibold focus:outline-none focus:ring-2 focus:ring-background"
           placeholder="Enter a movie/show title"
           onChange={(e) => {
             setTitle(e.target.value);
