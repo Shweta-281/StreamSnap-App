@@ -1,48 +1,37 @@
 import axios from "axios";
 import { useState } from "react";
-
 export default function Home() {
   const [title, setTitle] = useState(null);
   const [searchResults, setSearchResults] = useState(null);
   const [titleDetails, setTitleDetails] = useState(null);
   const [streamingInfo, setStreamingInfo] = useState(null);
-  const [loading, setLoading] = useState(false);
-  
   const getTitle = async () => {
     try {
-      setLoading(true);
       const res = await axios.get("api/search/", {
         params: { title },
       });
       const { data } = res;
       setSearchResults(data.results);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
     }
   };
-
   const getTitleDetails = async (id) => {
     try {
-      setLoading(true);
       const res = await axios.get("api/details/", {
         params: { id },
       });
       const { data } = res;
-      setLoading(false);
       setTitleDetails(data);
       setStreamingInfo(data.streamingAvailability.country.US);
     } catch (error) {
-      setLoading(false);
     }
   };
-
   return (
-    <div className="flex flex-col md:px-12 px-0 relative bg-secondary font-poppins items-center min-h-screen">
-      <h1 className="text-6xl font-bold text-background mt-20">
-        <span className="text-active">StreamSnap</span> App
+    <div className="flex flex-col md:px-12 px-0 relative bg-background font-poppins items-center min-h-screen">
+      <h1 className="text-6xl font-bold text-primary mt-20">
+        <span className="text-active">Streaming</span> Availability
       </h1>
-      <h2 className="text-background text-2xl font-light mt-6 font-ebas">
+      <h2 className="text-primary text-2xl font-light mt-6 font-ebas">
         Get Streaming details of Movie and TV Shows from 150+ Streaming
         platforms
       </h2>
@@ -56,7 +45,7 @@ export default function Home() {
       >
         <input
           type="text"
-          className="flex w-full sm:w-1/3 rounded-lg px-5 py-3 text-base text-background bg-primary font-semibold focus:outline-none focus:ring-2 focus:ring-background"
+          className="flex w-full sm:w-1/3 rounded-lg px-5 py-3 text-base text-background font-semibold focus:outline-none focus:ring-2 focus:ring-active"
           placeholder="Enter a movie/show title"
           onChange={(e) => {
             setTitle(e.target.value);
@@ -69,7 +58,7 @@ export default function Home() {
             className="block w-full rounded-lg px-5 py-3 bg-active text-base text-primary font-bold focus:outline-none focus:ring-2 focus:ring-primary sm:px-10"
             type="submit"
           >
-           {loading ? <>Loading..</> : <>Search</>}
+            Search
           </button>
         </div>
       </form>
@@ -80,7 +69,7 @@ export default function Home() {
               .filter((item) => item.imageurl && item.imageurl[0]) // Remove results with no images
               .map((item) => (
                 <div key={item.title} className="pt-6">
-                  <div className="flow-root bg-light px-4 pb-8 resize-none rounded-md hover:scale-110">
+                  <div className="flow-root bg-light rounded-lg px-4 pb-8">
                     <div className="-mt-6">
                       <div className="flex items-center justify-center">
                         <span className="p-2">
@@ -143,6 +132,5 @@ export default function Home() {
           </div>
         </div>
       )}
-    </div>  
   );
 }
