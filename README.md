@@ -2,7 +2,7 @@
 
 Tailwind CSS is integrated into the `create-next-app` CLI, which supports TypeScript and JavaScript, as well as the App Router (`app/`) and the pages directory `pages/`.
 
-<img width="893" alt="image" src="https://github.com/Shweta-281/StreamSnap-App/assets/144674061/f182a83e-711c-4c32-ad61-347a3f7dd8b2">
+<img width="619" alt="image" src="https://github.com/Shweta-281/StreamSnap-App/assets/144674061/a541ef11-b000-4441-9724-c481e2e68616">
 
 
 ## How to use
